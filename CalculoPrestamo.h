@@ -1,13 +1,54 @@
-//
-// Created by Maikol Guzman  on 2019-08-08.
-//
-
-#ifndef CALCULOPRESTAMO_CALCULOPRESTAMO_H
-#define CALCULOPRESTAMO_CALCULOPRESTAMO_H
-
-
+/*
+ * =====================================================================================
+ *
+ *       Filename:  LibroCalificaciones.h
+ *
+ *    Description:  Encabezado de la clase Libro Calificaciones
+ *
+ *        Created:  2019-08-05
+ *
+ *         Author:  Maikol Guzman Alan mikeguzman@gmail.com
+ *   Organization:  Universidad Nacional de Costa Rica
+ *
+ * =====================================================================================
+ */
 #include <cstdint>
 #include <string>
 
+using namespace std;
 
-#endif //CALCULOPRESTAMO_CALCULOPRESTAMO_H
+#ifndef LIBROCALIFICACIONES_LIBROCALIFICACIONES_H
+#define LIBROCALIFICACIONES_LIBROCALIFICACIONES_H
+
+
+class CalculoPrestamo {
+
+    float monto;
+
+    int CalcularTiempoEnMeses(std::string tiempoTXT);
+
+    float obtenerPorcentaje(std::string porcentajeTXT);
+
+    float calcularInteresMensual(float balance, float tasaAnual);
+
+public:
+
+//Constructor Default
+
+    CalculoPrestamo();
+
+    CalculoPrestamo(float monto);
+
+
+    float getMonto() const;
+
+    void setMonto(float monto);
+
+    string reportCalculoPrestamos(std::string tiempoTXT, std::string porcentajeTXT);
+
+
+
+};
+
+#endif //LIBROCALIFICACIONES_LIBROCALIFICACIONES_H
+
