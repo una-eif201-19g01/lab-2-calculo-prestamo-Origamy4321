@@ -13,6 +13,7 @@
  * =====================================================================================
  */
 #include <cstdint>
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -25,11 +26,8 @@ class CalculoPrestamo {
 
     float monto;
 
-    int CalcularTiempoEnMeses(std::string tiempoTXT);
 
-    float obtenerPorcentaje(std::string porcentajeTXT);
 
-    float calcularInteresMensual(float balance, float tasaAnual);
 
 public:
 
@@ -39,13 +37,19 @@ public:
 
     CalculoPrestamo(float monto);
 
+    float CalcularTiempoEnMeses(std::string tiempoTXT);
+
+    float obtenerPorcentaje(std::string porcentajeTXT);
+
+    float calcularInteresMensual(float balance, float tasaAnual);
+
+    float MariaJuana(float intelec);
 
     float getMonto() const;
 
     void setMonto(float monto);
 
     string reportCalculoPrestamos(std::string tiempoTXT, std::string porcentajeTXT);
-
 
 
 };
