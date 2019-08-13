@@ -27,15 +27,13 @@ class CalculoPrestamo {
     float monto;
 
 
-
-
 public:
 
 //Constructor Default
 
     CalculoPrestamo();
 
-    CalculoPrestamo(float monto);
+    CalculoPrestamo(int64_t monto);
 
     float CalcularTiempoEnMeses(std::string tiempoTXT);
 
