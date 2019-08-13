@@ -41,7 +41,7 @@ public:
 
     float calcularInteresMensual(float balance, float tasaAnual);
 
-    float MariaJuana(float intelec); //metodo de prueba
+    float MariaJuana(float intelec); //metodo para probar
 
     float getMonto() const;
 
