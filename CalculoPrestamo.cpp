@@ -104,7 +104,7 @@ string CalculoPrestamo::reportCalculoPrestamos(std::string tiempoTXT, std::strin
 
     return std::__cxx11::string();
 }
-
+//metodo de prueba
 float CalculoPrestamo::MariaJuana(float intelec) {
 
     return 0;
