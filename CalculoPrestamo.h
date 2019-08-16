@@ -28,6 +28,11 @@ class CalculoPrestamo {
 
     float monto;
 
+    int CalcularTiempoEnMeses(std::string tiempoTXT);
+
+    float obtenerPorcentaje(std::string porcentajeTXT);
+
+    float calcularInteresMensual(float balance, float tasaAnual);
 
 public:
 
@@ -37,11 +42,6 @@ public:
 
     CalculoPrestamo(float monto);
 
-    int CalcularTiempoEnMeses(std::string tiempoTXT);
-
-    float obtenerPorcentaje(std::string porcentajeTXT);
-
-    float calcularInteresMensual(float balance, float tasaAnual);
 
     float getMonto() const;
 
