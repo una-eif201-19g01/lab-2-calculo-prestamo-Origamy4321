@@ -21,7 +21,7 @@
 
 CalculoPrestamo::CalculoPrestamo() {}
 
-CalculoPrestamo::CalculoPrestamo(int64_t monto) : monto(monto) {}
+CalculoPrestamo::CalculoPrestamo(float monto) : monto(monto) {}
 
 int CalculoPrestamo::CalcularTiempoEnMeses(std::string tiempoTXT) {
 
@@ -53,17 +53,19 @@ float CalculoPrestamo::obtenerPorcentaje(std::string porcentajeTXT) {
     return porcento;
 
 
-
 }
 
 float CalculoPrestamo::calcularInteresMensual(float balance, float tasaAnual) {
 
 
     monto = balance;
-    return (balance * (tasaAnual / 12));
+    string convertir ="";
+    convertir = to_string(tasaAnual);
+    tasaAnual = obtenerPorcentaje(convertir);
+    return (balance * tasaAnual) / 12;
 
 
-    //return 0;
+    return 0;
 }
 
 float CalculoPrestamo::getMonto() const {
@@ -73,7 +75,6 @@ float CalculoPrestamo::getMonto() const {
 void CalculoPrestamo::setMonto(float monto) {
 
 }
-
 
 
 string CalculoPrestamo::reportCalculoPrestamos(std::string tiempoTXT, std::string porcentajeTXT) {
@@ -87,13 +88,11 @@ string CalculoPrestamo::reportCalculoPrestamos(std::string tiempoTXT, std::strin
     for (int mes = 1; mes < mes; ++mes) {
         balance = +interes;
 
-        reporte = reporte + "Tasa[\n" + porcentajeTXT + "], mes [\n" + std::to_string(mes) + "] balance inicial [\n" +
-                  std::to_string(balance) + "]interes[\n" + std::to_string(interes) + "\n" +
+        reporte = reporte + "Tasa[" + porcentajeTXT + "], mes [" + std::to_string(mes) + "] balance inicial [" +
+                  std::to_string(balance) + "]interes[" + std::to_string(interes) + "balace nuevo" +
                   std::to_string(balanceNuevo);
-
-
     }
-    return std::__cxx11::string();
+    return reporte;
 
 }
 

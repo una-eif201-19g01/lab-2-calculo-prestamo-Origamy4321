@@ -14,6 +14,8 @@
  */
 #include <cstdint>
 #include <iostream>
+#include <math.h>
+#include <sstream>
 #include <string>
 
 using namespace std;
@@ -33,7 +35,7 @@ public:
 
     CalculoPrestamo();
 
-    CalculoPrestamo(int64_t monto);
+    CalculoPrestamo(float monto);
 
     int CalcularTiempoEnMeses(std::string tiempoTXT);
 

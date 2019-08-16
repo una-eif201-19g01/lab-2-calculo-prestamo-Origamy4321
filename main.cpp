@@ -7,7 +7,6 @@ int main() {
     CalculoPrestamo V1(30000);
 
     cout << endl << endl << endl << endl;
-
     cout << endl;
     cout << V1.reportCalculoPrestamos("1A", "8.40");
 
