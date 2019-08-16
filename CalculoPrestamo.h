@@ -41,16 +41,12 @@ public:
 
     float calcularInteresMensual(float balance, float tasaAnual);
 
-    float MariaJuana(float intelec); //metodo para probar
-
     float getMonto() const;
 
     void setMonto(float monto);
 
     string reportCalculoPrestamos(std::string tiempoTXT, std::string porcentajeTXT);
 
-
-    void funcion_x(string tiempoTXT, string porcentajeTXT);
 };
 
 #endif //LIBROCALIFICACIONES_LIBROCALIFICACIONES_H
