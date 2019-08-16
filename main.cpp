@@ -8,9 +8,10 @@ int main() {
 
     cout << endl << endl << endl << endl;
     cout << endl;
-    cout << V1.reportCalculoPrestamos("1A", "8.40");
-
-
+    cout << V1.calcularInteresMensual(30000, 8.40) << endl;
+    cout << V1.obtenerPorcentaje("8.40%") << endl;
+    cout << V1.CalcularTiempoEnMeses("1A") << endl;
+    cout << V1.reportCalculoPrestamos("1A", "8.40%");
 
 
 //CalculoPrestamo.Obj(30000);

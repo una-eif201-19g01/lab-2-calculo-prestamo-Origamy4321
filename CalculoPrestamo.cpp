@@ -28,6 +28,7 @@ int CalculoPrestamo::CalcularTiempoEnMeses(std::string tiempoTXT) {
     int mes = 0;
     int anno = 0;
 
+
     if (tiempoTXT.find("A") != 0) {
 
         anno = stoi(tiempoTXT.substr(0, tiempoTXT.find("A")));
@@ -48,7 +49,7 @@ float CalculoPrestamo::obtenerPorcentaje(std::string porcentajeTXT) {
         porcento = std::stof(porcentajeTXT.substr(0, buscarPorcento));
     if (porcento > 0)
 
-        porcento = porcento / 100;
+        porcento = porcento / 10;
 
     return porcento;
 
@@ -59,7 +60,7 @@ float CalculoPrestamo::calcularInteresMensual(float balance, float tasaAnual) {
 
 
     monto = balance;
-    string convertir ="";
+    string convertir = "";
     convertir = to_string(tasaAnual);
     tasaAnual = obtenerPorcentaje(convertir);
     return (balance * tasaAnual) / 12;
@@ -79,18 +80,22 @@ void CalculoPrestamo::setMonto(float monto) {
 
 string CalculoPrestamo::reportCalculoPrestamos(std::string tiempoTXT, std::string porcentajeTXT) {
 
-    float balance = getMonto();
-    float balanceNuevo = getMonto();
+    float interes = 0;
+    float balance = monto;
+    float balanceNuevo = monto;
     float porcentaje = obtenerPorcentaje(porcentajeTXT);
     int meses = CalcularTiempoEnMeses(tiempoTXT) + 1;
     std::string reporte = "";
-    float interes = calcularInteresMensual(balanceNuevo, porcentaje);
-    for (int mes = 1; mes < mes; ++mes) {
-        balance = +interes;
+    for (int mes = 1; mes < meses; ++mes) {
+        float interes = calcularInteresMensual(balanceNuevo, porcentaje);
+        balance = balanceNuevo;
+        balanceNuevo = balanceNuevo + interes;
+
 
         reporte = reporte + "Tasa[" + porcentajeTXT + "], mes [" + std::to_string(mes) + "] balance inicial [" +
-                  std::to_string(balance) + "]interes[" + std::to_string(interes) + "balace nuevo" +
-                  std::to_string(balanceNuevo);
+                  std::to_string(balance) + "]interes[ " + std::to_string(interes) + "] balance nuevo [" +
+                  std::to_string(balanceNuevo) + "]\n";
+
     }
     return reporte;
 
