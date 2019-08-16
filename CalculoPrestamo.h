@@ -35,7 +35,7 @@ public:
 
     CalculoPrestamo(int64_t monto);
 
-    float CalcularTiempoEnMeses(std::string tiempoTXT);
+    int CalcularTiempoEnMeses(std::string tiempoTXT);
 
     float obtenerPorcentaje(std::string porcentajeTXT);
 
@@ -50,6 +50,7 @@ public:
     string reportCalculoPrestamos(std::string tiempoTXT, std::string porcentajeTXT);
 
 
+    void funcion_x(string tiempoTXT, string porcentajeTXT);
 };
 
 #endif //LIBROCALIFICACIONES_LIBROCALIFICACIONES_H

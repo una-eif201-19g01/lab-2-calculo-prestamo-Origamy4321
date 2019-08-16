@@ -9,12 +9,12 @@ int main() {
 
     cout << endl << endl << endl << endl;
 
-    cout << "hasta luego mari carmen nos vemos en mcdonald esto es una prueba" << endl;
-    cout << V1.obtenerPorcentaje("8.40%");
-    cout << endl << endl << endl;
-    cout << V1.CalcularTiempoEnMeses("1A");
-    cout << endl << endl << endl;
-    cout << V1.calcularInteresMensual(30000, 0.084);
+    cout <<endl;
+    std::string reporte;
+    reporte = V1.reportCalculoPrestamos("1A","8.40");
+    cout<< reporte << std::endl;
+
+
 
 //CalculoPrestamo.Obj(30000);
 //

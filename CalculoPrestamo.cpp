@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <sstream>
 #include "CalculoPrestamo.h"
 
 /*
@@ -22,60 +23,49 @@ CalculoPrestamo::CalculoPrestamo() {}
 
 CalculoPrestamo::CalculoPrestamo(int64_t monto) : monto(monto) {}
 
-float CalculoPrestamo::CalcularTiempoEnMeses(std::string tiempoTXT) {
+int CalculoPrestamo::CalcularTiempoEnMeses(std::string tiempoTXT) {
 
-    //nota el metodo es int
-    //int meses = 0;
-    //int anno = 0;
-    //int buscarTiempoAnno = tiempoTXT.find("A") este busca el valor que trae la A al final ex: 1A
-    //int buscarTiempoMes = tiempoTXT.find("M") lo mismo pero con meses.
-    //if(buscarTiempoAno>0){
-    //ano = stoi(tiempoTXT.substr(0, buscarTiempoAnno))
-    //if (anno > 0){
-    // meses = anno*12
-    //}
-    //} else
-    //if (buscarTiempoMes > 0){
-    // meses = stoi(tiempoTXT.substr)
+    int mes = 0;
+    int anno = 0;
 
+    if (tiempoTXT.find("A") != 0) {
 
+        anno = stoi(tiempoTXT.substr(0, tiempoTXT.find("A")));
+        if (anno > 0)
+            return mes = anno * 12;
+    } else
+        mes = stoi(tiempoTXT.substr(0, tiempoTXT.find("M")));
+    return mes;
 
-    tiempoTXT = "1A";
-    if (tiempoTXT.find("A"))
-        std::string str = tiempoTXT.substr(0, 1);
-    return std::stof(tiempoTXT) * 12;
 
 }
 
 float CalculoPrestamo::obtenerPorcentaje(std::string porcentajeTXT) {
 
-    // metodo obtener porcentaje solución
-    //float porcento=0;
-    //int buscarPorcento = porcentajeTXT.find(%);
-    //if(buscarporcentaje > 0){
-    //porcentaje = std::stof(porcentajeTXT.substr(0,buscarporcentaje));
-    //if(porcentaje > 0){
-    // porcentaje = porcentaje /100;}
-    //}
-    //}
-    //return porcentaje;
+    float porcento = 0;
+    int buscarPorcento = porcentajeTXT.find("%");
+    if (porcentajeTXT.find("%") != 0)
+        porcento = std::stof(porcentajeTXT.substr(0, buscarPorcento));
+    if(porcento > 0)
 
-    porcentajeTXT = "8.40%";
-    std::string str = porcentajeTXT.substr(0, 4);
-    return std::stof(porcentajeTXT) / 100;
+    porcento = porcento / 100;
 
-    return 0;
+    return porcento;
+
+    // porcentajeTXT = "8.40%";
+    //std::string str = porcentajeTXT.substr(0, 4);
+    //return std::stof(porcentajeTXT) / 100;
+
 }
 
 float CalculoPrestamo::calcularInteresMensual(float balance, float tasaAnual) {
 
+
     monto = balance;
-    tasaAnual = 0.084;
-
-    return (balance * tasaAnual) / 12;
+    return (balance * (tasaAnual/12));
 
 
-    return 0;
+    //return 0;
 }
 
 float CalculoPrestamo::getMonto() const {
@@ -90,20 +80,25 @@ void CalculoPrestamo::setMonto(float monto) {
 
 string CalculoPrestamo::reportCalculoPrestamos(std::string tiempoTXT, std::string porcentajeTXT) {
 
-// std::string reporte = "";
-//int meses = calcularTiempoEnMeses(TiempoTXT)+1;
-//float porcentaje = obtenerPorcentaje(PorcentajeTXT);
-//float balance = getmonto();
-//float balanceNuevo = getmonto();
-//for(int mes =1; mes<mes; ++mes){
-//reporte = reporte + "Tasa"["+ porcentaje + "], Mes [" + std::to_string(mes) " ], balance
-//std::to_string(balanceNuevo)
+    float balance = getMonto();
+    float balanceNuevo = getMonto();
+    float porcentaje = obtenerPorcentaje(porcentajeTXT);
+    int meses = CalcularTiempoEnMeses(tiempoTXT) + 1;
+    std::string reporte = "";
+    float interes = calcularInteresMensual(balanceNuevo, porcentaje);
+    for (int mes = 1; mes < mes; ++mes) {
+        balance=+interes;
+
+        reporte = reporte + "Tasa[\n" + porcentajeTXT + "], mes [\n" + std::to_string(mes) + "] balance inicial [\n" +
+                  std::to_string(balance) + "]interes[\n" + std::to_string(interes) +"\n"+std::to_string(balanceNuevo);
 
 
+    }
+    return reporte;
 
-
-    return std::__cxx11::string();
 }
+
+
 //metodo de prueba
 float CalculoPrestamo::MariaJuana(float intelec) {
 
